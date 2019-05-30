@@ -214,7 +214,7 @@
                 <version>2.2</version>
                 <configuration>
                     <url>http://localhost:8085/manager/text</url>
-                    <server>TomcatServer</server>
+                    <server>tomcatserver</server>
                     <path>/got</path>
                 </configuration>
             </plugin>
