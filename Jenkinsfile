@@ -16,5 +16,10 @@ pipeline {
         sh 'mvn package'
       }
     }
+    stage('Deploy') {
+      steps {
+        sh 'mvn tomcat7:redeploy'
+      }
+    }
   }
 }
