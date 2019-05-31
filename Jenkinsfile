@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Compile') {
       steps {
-        sh 'mvn compile'
+        sh 'mvn compile -Dmaven.test.skip=true'
       }
     }
     stage('Test') {
@@ -13,13 +13,17 @@ pipeline {
     }
     stage('Package') {
       steps {
-        sh 'mvn package'
+        sh 'mvn package -Dmaven.test.skip=true'
       }
     }
     stage('Deploy') {
       steps {
-        sh 'mvn tomcat7:deploy'
+        pwd()
+        sh 'cp target/*.war ${TOMCAT_DEV_HOME}/webapps'
       }
     }
+  }
+  environment {
+    TOMCAT_DEV_HOME = 'C:\\dev\\tools\\tomcat\\apache-tomcat-7.0.84'
   }
 }
