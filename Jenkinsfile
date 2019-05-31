@@ -23,12 +23,12 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh 'cp target\\*.war ${TOMCAT_DEV_HOME}\\webapps\\got.war'
+        sh 'cp target/*.war ${TOMCAT_DEV_HOME}/webapps/got.war'
       }
     }
     stage('Start Tomcat') {
       steps {
-        sh './${TOMCAT_DEV_HOME}/bin/catalina.sh run'
+        sh ' /c/dev/tools/tomcat/apache-tomcat-7.0.84/bin/catalina.sh run'
       }
     }
   }
