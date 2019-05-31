@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent node
   stages {
     stage('Compile') {
       steps {
@@ -18,11 +18,9 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        build 'GOT-Deploy-to-Dev'
+        build job:'../GOT-Deploy-to-Dev' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
       }
     }
   }
-  environment {
-    TOMCAT_DEV_HOME = ' /c/dev/tools/tomcat/apache-tomcat-7.0.84'
-  }
+  
 }
