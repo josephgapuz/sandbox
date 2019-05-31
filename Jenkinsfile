@@ -19,7 +19,7 @@ pipeline {
     stage('Stop Tomcat') {
       steps {
         dir(path: '${TOMCAT_DEV_HOME}\\bin') {
-          sh 'catalina stop'
+          sh './catalina.sh stop'
         }
 
       }
