@@ -16,19 +16,9 @@ pipeline {
         sh 'mvn package -Dmaven.test.skip=true'
       }
     }
-    stage('Stop Tomcat') {
-      steps {
-        sh ' /c/dev/tools/tomcat/apache-tomcat-7.0.84/bin/catalina.sh stop'
-      }
-    }
     stage('Deploy') {
       steps {
-        sh 'cp target/*.war ${TOMCAT_DEV_HOME}/webapps/got.war'
-      }
-    }
-    stage('Start Tomcat') {
-      steps {
-        sh 'nohup /c/dev/tools/tomcat/apache-tomcat-7.0.84/bin/catalina.sh run &'
+        build 'GOT-Deploy-to-Dev'
       }
     }
   }
