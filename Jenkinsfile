@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Stop Tomcat') {
       steps {
-        sh './${TOMCAT_DEV_HOME}/bin/catalina.sh stop'
+        sh ' /c/dev/tools/tomcat/apache-tomcat-7.0.84/bin/catalina.sh stop'
       }
     }
     stage('Deploy') {
