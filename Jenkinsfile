@@ -16,10 +16,25 @@ pipeline {
         sh 'mvn package -Dmaven.test.skip=true'
       }
     }
+    stage('Stop Tomcat') {
+      steps {
+        dir(path: '${TOMCAT_DEV_HOME}\\bin') {
+          sh 'catalina stop'
+        }
+
+      }
+    }
     stage('Deploy') {
       steps {
-        pwd()
-        sh 'cp target/*.war ${TOMCAT_DEV_HOME}/webapps'
+        sh 'cp target\\*.war ${TOMCAT_DEV_HOME}\\webapps\\got.war'
+      }
+    }
+    stage('Start Tomcat') {
+      steps {
+        dir(path: '${TOMCAT_DEV_HOME}\\bin') {
+          sh 'catalina run'
+        }
+
       }
     }
   }
