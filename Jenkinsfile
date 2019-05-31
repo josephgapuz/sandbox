@@ -33,6 +33,6 @@ pipeline {
     }
   }
   environment {
-    TOMCAT_DEV_HOME = 'C:\\dev\\tools\\tomcat\\apache-tomcat-7.0.84'
+    TOMCAT_DEV_HOME = ' /c/dev/tools/tomcat/apache-tomcat-7.0.84'
   }
 }
