@@ -14,25 +14,13 @@ pipeline {
     stage('Package') {
       steps {
         sh 'mvn package -Dmaven.test.skip=true'
-      }
-    }
-    stage('Stop Tomcat') {
-      steps {
-        sh ' /c/dev/tools/tomcat/apache-tomcat-7.0.84/bin/catalina.sh stop'
+        archiveArtifacts(artifacts: 'target/sandbox-1.0-SNAPSHOT.war', fingerprint: true)
       }
     }
     stage('Deploy') {
       steps {
-        sh 'cp target/*.war ${TOMCAT_DEV_HOME}/webapps/got.war'
+        build(job: '../GOT-Deploy-to-Test', parameters: [string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")])
       }
     }
-    stage('Start Tomcat') {
-      steps {
-        sh 'nohup /c/dev/tools/tomcat/apache-tomcat-7.0.84/bin/catalina.sh run &'
-      }
-    }
-  }
-  environment {
-    TOMCAT_DEV_HOME = ' /c/dev/tools/tomcat/apache-tomcat-7.0.84'
   }
 }
