@@ -28,7 +28,7 @@ pipeline {
     }
     stage('Start Tomcat') {
       steps {
-        sh ' /c/dev/tools/tomcat/apache-tomcat-7.0.84/bin/catalina.sh run'
+        sh 'nohup /c/dev/tools/tomcat/apache-tomcat-7.0.84/bin/catalina.sh run &'
       }
     }
   }
