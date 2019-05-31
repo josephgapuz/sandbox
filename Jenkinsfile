@@ -14,7 +14,7 @@ pipeline {
     stage('Package') {
       steps {
         sh 'mvn package -Dmaven.test.skip=true'
-        archiveArtifacts(artifacts: '/target/sandbox-1.0-SNAPSHOT.war', fingerprint: true)
+        archiveArtifacts(artifacts: 'target/sandbox-1.0-SNAPSHOT.war', fingerprint: true)
       }
     }
     stage('Deploy') {
