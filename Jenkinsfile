@@ -18,10 +18,7 @@ pipeline {
     }
     stage('Stop Tomcat') {
       steps {
-        dir(path: '${TOMCAT_DEV_HOME}\\bin') {
-          sh './catalina.sh stop'
-        }
-
+        sh './${TOMCAT_DEV_HOME}/bin/catalina.sh stop'
       }
     }
     stage('Deploy') {
@@ -31,10 +28,7 @@ pipeline {
     }
     stage('Start Tomcat') {
       steps {
-        dir(path: '${TOMCAT_DEV_HOME}\\bin') {
-          sh 'catalina run'
-        }
-
+        sh './${TOMCAT_DEV_HOME}/bin/catalina.sh run'
       }
     }
   }
