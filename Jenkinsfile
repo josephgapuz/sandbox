@@ -4,6 +4,7 @@ pipeline {
     stage('Compile') {
       steps {
         sh 'mvn compile -Dmaven.test.skip=true'
+        waitForQualityGate true
       }
     }
     stage('Test') {
