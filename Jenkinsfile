@@ -6,18 +6,14 @@ pipeline {
         sh 'mvn compile -Dmaven.test.skip=true'
       }
     }
-    stage('Test') {
-      parallel {
-        stage('Test') {
-          steps {
-            sh 'mvn test'
-          }
-        }
-        stage('SonarQube') {
-          steps {
-            sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:RELEASE:sonar -Dsonar.host.url=http://localhost:9000'
-          }
-        }
+    stage('JUnit Test') {
+      steps {
+        sh 'mvn test'
+      }
+    }
+    stage('SonarQube') {
+      steps {
+        sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:RELEASE:sonar -Dsonar.host.url=http://localhost:9000'
       }
     }
     stage('Package') {
@@ -28,7 +24,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        build(job: '../GOT-Deploy-to-Dev', parameters: [string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")])
+        build '../GOT-Deploy-to-Dev'
       }
     }
   }
