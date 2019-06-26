@@ -272,11 +272,13 @@
         </plugins>
     </build>
     <distributionManagement>
+		<!--
 		<repository>
 		  <id>repo</id>
 		  <name>Internal Release Repository</name>
 		  <url>http://localhost:9090/repository/repo/</url>
 		</repository>
+		-->
 		<repository>
 		  <id>repo-staging</id>
 		  <name>Internal Release Repository</name>
