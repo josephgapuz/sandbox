@@ -3,7 +3,7 @@
     <groupId>com.sample</groupId>
     <artifactId>sandbox</artifactId>
     <packaging>war</packaging>
-    <version>1.0.6</version>
+    <version>1.0.7-SNAPSHOT</version>
     <name>Spring MVC Application</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -34,7 +34,7 @@
 	
 	<scm>
 		<developerConnection>scm:git:https://github.com/josephgapuz/sandbox.git</developerConnection>
-	  <tag>v1.0.6</tag>
+	  <tag>v1.0.2</tag>
   </scm>
 	
     <dependencies>
