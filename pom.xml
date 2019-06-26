@@ -282,11 +282,11 @@
 		  <name>Internal Snapshot Repository</name>
 		  <url>http://localhost:9090/repository/snapshots/</url>
 		</snapshotRepository>
-		<snapshotRepository>
+		<stagigRepository>
 		  <id>repo-stage</id>
 		  <name>Internal Snapshot Repository</name>
 		  <url>http://localhost:9090/repository/repo-stage/</url>
-		</snapshotRepository>
+		</stagigRepository>
 		
   </distributionManagement>    
 </project>
