@@ -280,7 +280,7 @@
 		<repository>
 		  <id>repo-staging</id>
 		  <name>Internal Release Repository</name>
-		  <url>http://localhost:9090/repository/repo-stage/</url>
+		  <url>http://localhost:9090/repository/internal/</url>
 		</repository>
 		<snapshotRepository>
 		  <id>snapshots</id>
