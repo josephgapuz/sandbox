@@ -13,8 +13,7 @@ public class AccountController {
 
     private final AccountRepository accountRepository;
 
-    public AccountController(AccountRepository accountRepository) {
-        this will cause compile error.
+    public AccountController(AccountRepository accountRepository) {        
         this.accountRepository = accountRepository;
     }
 
